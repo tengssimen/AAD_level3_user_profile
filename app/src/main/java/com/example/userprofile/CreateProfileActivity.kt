@@ -32,8 +32,7 @@ class CreateProfileActivity : AppCompatActivity() {
         // Start the activity using the gallery intent
         startActivityForResult(galleryIntent, GALLERY_REQUEST_CODE)
     }
-
-    //creates profile object, and starts the profileactivity using the profile object.
+    
     private fun onConfirmClick() {
         val profile = Profile(
             etFirstName.text.toString(),
@@ -46,10 +45,7 @@ class CreateProfileActivity : AppCompatActivity() {
         profileActivityIntent.putExtra(ProfileActivity.PROFILE_EXTRA, profile)
         startActivity(profileActivityIntent)
     }
-
-    /**
-     * When a [GALLERY_REQUEST_CODE] has been found store the uri in [profileImageUri] and set the imageView with it.
-     */
+    
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (resultCode == Activity.RESULT_OK) {
             when (requestCode) {
